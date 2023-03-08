@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-import Weather from '../components/weather';
+import Weather from '../components/Weather';
 import Spinner from '../components/Spinner'
 
 type City = {
@@ -71,9 +71,7 @@ export default function Home() {
           >
             Search
           </button>
-  
-          {/* <Weather data={weather}/> */}
-  
+          {weather && <Weather data={weather}/>}
         </div>
         <div className='top-8 left-0 right-0 bottom-0 opacity-50 z-[-1]'>
           <Image className='' src="https://images.pexels.com/photos/296234/pexels-photo-296234.jpeg?auto=compress&cs=tinysrgb&w=1600" layout='fill' alt='/' />
