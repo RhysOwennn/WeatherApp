@@ -6,13 +6,14 @@ Get started:
 npm install
 ```
 
-To run development:
+To run development on http://localhost:3000/:
 
 ```bash
 npm run dev
 ```
 
 You will need a 5 day / 3 hour API key from https://openweathermap.org/forecast5
+Insert this key in .env.local file under NEXT_PUBLIC_OPEN_WEATHER_API_KEY=APIKEY
 
 Depenedencies are:
 Axios - https://www.npmjs.com/package//axios
