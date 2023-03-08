@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-import Image from 'next/image';
-import Weather from '../components/Weather';
+import WeatherComponent from '../components/Weather';
 import Spinner from '../components/Spinner'
 
 type City = {
@@ -15,18 +14,33 @@ type City = {
 
 export type CityWeather = {
   city: City;
-  list: Weather[]
+  list: WeatherT[];
 }
 
-type WeatherInfo = {
+export type WeatherInfo = {
   description: string;
   icon: string;
   id: number;
-  main: string;
 }
 
-type Weather = {
-  weather: WeatherInfo[]
+type Wind = {
+  speed: number;
+}
+
+type WeatherDetails = {
+  humidity: number;
+  temp: number;
+  temp_max: number;
+  temp_min: number;
+
+}
+
+export type WeatherT = {
+  weather: WeatherInfo[];
+  dt_txt: string;
+  main: WeatherDetails;
+  wind: Wind;
+
 }
 
 
@@ -34,18 +48,23 @@ export default function Home() {
 	const [city, setCity] = useState('');
   const [weather, setWeather] = useState<CityWeather>();
   const [loading, setLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
 
-	const getWeather = (e: any) => {
-    console.log("launches")
+	const getWeather = (e: { preventDefault: () => void }) => {
     setLoading(true);
     const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}`
     e.preventDefault()
     axios.get(url).then((response) => {
       console.log(response.data)
       setWeather(response.data)
-    })
+    }).catch(
+      function () {
+        setIsError(true)
+      }
+    )
     setLoading(false);
+    
 	};
 
   if(loading){
@@ -68,13 +87,13 @@ export default function Home() {
           <button
             onClick={getWeather}
             className="outline-none border-none font-bold font-raleway px-12 py-2 rounded-sm bg-indigo-300 text-gray-700 transition duration-300 hover:bg-indigo-600 hover:text-white"
+            hidden={weather ? true : false}
           >
             Search
           </button>
-          {weather && <Weather data={weather}/>}
-        </div>
-        <div className='top-8 left-0 right-0 bottom-0 opacity-50 z-[-1]'>
-          <Image className='' src="https://images.pexels.com/photos/296234/pexels-photo-296234.jpeg?auto=compress&cs=tinysrgb&w=1600" layout='fill' alt='/' />
+          {isError && <div className='text-red-500'>There was an error. Are you sure that city exists?</div>}
+          {weather && <WeatherComponent data={weather}/>}
+          <a href='/' hidden={weather ? false : true} className='outline-none border-none font-bold font-raleway px-12 py-2 rounded-sm bg-indigo-300 text-gray-700 transition duration-300 hover:bg-indigo-600 hover:text-white'>Back</a>
         </div>
       </div>
     );
