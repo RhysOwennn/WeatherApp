@@ -88,7 +88,7 @@ export default function Home() {
             Search
           </button>
           {isError && (
-            <div className="text-red-500">
+            <div className="flex text-red-500 w-52">
               There was an error. Are you sure that city exists?
             </div>
           )}
