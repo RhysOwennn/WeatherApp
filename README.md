@@ -20,5 +20,5 @@ Depenedencies are:
 * Axios - https://www.npmjs.com/package//axios
 * Prettier - https://www.npmjs.com/package/prettier
 
-Site deployed here:
+Site deployed live here:
 https://weather-app-silk-nine.vercel.app/
