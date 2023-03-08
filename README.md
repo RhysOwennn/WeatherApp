@@ -1,4 +1,4 @@
-Is a Next JS, React, Typescript Web Application :sunrise:
+## Is a Next JS, React, Typescript Web Application :sunrise:
 
 Get started:
 
@@ -11,14 +11,14 @@ To run development on http://localhost:3000/:
 ```bash
 npm run dev
 ```
-
+### Important!
 You will need a 5 day / 3 hour API key from https://openweathermap.org/forecast5 :lock:
 
-Insert this key in `.env.local` file under `NEXT_PUBLIC_OPEN_WEATHER_API_KEY=APIKEY`
+Insert this key in `.env.local` file for the value of `NEXT_PUBLIC_OPEN_WEATHER_API_KEY=APIKEY`
 
 Depenedencies are:
 * Axios - https://www.npmjs.com/package//axios
 * Prettier - https://www.npmjs.com/package/prettier
 
-Site deployed live here:
+## Site deployed live here:
 https://weather-app-silk-nine.vercel.app/
