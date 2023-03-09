@@ -20,9 +20,18 @@ Insert this key in `.env.local` file for the value of `NEXT_PUBLIC_OPEN_WEATHER_
 
 Depenedencies are:
 
-- Axios - https://www.npmjs.com/package//axios
-- Prettier - https://www.npmjs.com/package/prettier
+- [Axios] - For querying
+- [Prettier] - Auto formatting
+- [DaisyUI] - Component styles
+
+Run `prettier --write .` from cmd line for auto-formatting
 
 ## Site deployed live here:
 
 https://weather-app-silk-nine.vercel.app/
+
+
+
+[Axios]: <https://www.npmjs.com/package//axios>
+[Prettier]: <https://www.npmjs.com/package/prettier>
+[DaisyUI]: <https://daisyui.com/>
