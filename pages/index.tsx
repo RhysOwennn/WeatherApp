@@ -5,7 +5,6 @@ import Spinner from "../components/Spinner";
 import Nav from "../components/Nav";
 import Search from "../components/Search";
 import Footer from "../components/Footer";
-import Image from 'next/image'
 
 type City = {
   country: string;
@@ -53,10 +52,16 @@ export default function Home() {
 
   const getWeather = (e: { preventDefault: () => void }) => {
     setLoading(true);
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY}&units=metric`;
     e.preventDefault();
-    axios
-      .get(url)
+    axios({
+      method: "get",
+      url: `https://api.openweathermap.org/data/2.5/forecast`,
+      params: {
+        appid: process.env.NEXT_PUBLIC_OPEN_WEATHER_API_KEY,
+        units: "metric",
+        q: city,
+      },
+    })
       .then((response) => {
         setWeather(response.data);
         setIsError(false);
@@ -71,18 +76,25 @@ export default function Home() {
     return <Spinner />;
   } else {
     return (
-      <><div className="min-h-screen bg-sky">
-        <Nav />
-        <div className="flex items-center flex-col mt-12">
-          <div>
-            <h2 className="font-raleway text-5xl font-extrabold mb-10 sm:text-4xl mt-8">
-              How's the weather?
-            </h2>
+      <>
+        <div className="min-h-screen bg-sky">
+          <Nav />
+          <div className="flex items-center flex-col mt-12">
+            <div>
+              <h2 className="font-raleway text-5xl font-extrabold mb-10 sm:text-4xl mt-8">
+                How's the weather?
+              </h2>
+            </div>
+            <Search
+              getWeather={getWeather}
+              weather={weather}
+              setCity={setCity}
+              isError={isError}
+            />
+            {weather && <WeatherComponent data={weather} />}
           </div>
-          <Search getWeather={getWeather} weather={weather} setCity={setCity} isError={isError} />
-          {weather && <WeatherComponent data={weather} />}
         </div>
-        </div><Footer/>
+        <Footer />
       </>
     );
   }
