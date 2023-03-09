@@ -12,11 +12,11 @@ const WeatherCard = ({weather, data, index}: {weather: WeatherT, data: CityWeath
     <button onClick={(()=> {setShowCard(!showCard)})} className="card-bordered w-96 bg-base-100 shadow-xl p-4 hover:bg-sky-300 focus:outline-none focus:ring">
         <div className="card-title">{weekday} - {weather.weather[0].description} - {weather.dt_txt.slice(10, 16)}</div>
         <div className={showCard ? "card-body grid" : "card-body hidden"}>
-            <div>Humidity:{" "}{weather.main.humidity} % </div>
-            <div>Temperature:{" "}{weather.main.temp} ℃</div>
-            <div>Max Temperature:{" "}{weather.main.temp_max} ℃ </div>
-            <div>Max Temperature:{" "}{weather.main.temp_min} ℃ </div>
-            <div>Wind Speed: {" "}{weather.wind.speed} meter/sec </div>
+            <div>Humidity:{" "}{weather.main.humidity}% </div>
+            <div>Temperature:{" "}{weather.main.temp}℃</div>
+            <div>Max Temperature:{" "}{weather.main.temp_max}℃ </div>
+            <div>Max Temperature:{" "}{weather.main.temp_min}℃ </div>
+            <div>Wind Speed: {" "}{weather.wind.speed}meter/sec </div>
     </div>
     <div className="flex justify-center">
     <Image

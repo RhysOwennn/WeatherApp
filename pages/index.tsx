@@ -82,7 +82,7 @@ export default function Home() {
           <Search getWeather={getWeather} weather={weather} setCity={setCity} isError={isError} />
           {weather && <WeatherComponent data={weather} />}
         </div>
-      </div>
+        </div><Footer/>
       </>
     );
   }
