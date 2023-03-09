@@ -6,7 +6,9 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {backgroundImage: {
+      'sky': "url('https://images.pexels.com/photos/97558/pexels-photo-97558.jpeg')",
+    }},
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };
