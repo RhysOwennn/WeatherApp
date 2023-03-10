@@ -30,8 +30,8 @@ const WeatherCard = ({
       <div className={showCard ? "card-body grid" : "card-body hidden"}>
         <div>Humidity: {weather.main.humidity}% </div>
         <div>Temperature: {weather.main.temp}℃</div>
+        <div>Min Temperature: {weather.main.temp_min}℃ </div>
         <div>Max Temperature: {weather.main.temp_max}℃ </div>
-        <div>Max Temperature: {weather.main.temp_min}℃ </div>
         <div>Wind Speed: {weather.wind.speed}meter/sec </div>
       </div>
       <div className="flex justify-center">
