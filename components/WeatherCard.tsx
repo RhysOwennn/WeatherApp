@@ -32,7 +32,7 @@ const WeatherCard = ({
         <div>Temperature: {weather.main.temp}℃</div>
         <div>Min Temperature: {weather.main.temp_min}℃ </div>
         <div>Max Temperature: {weather.main.temp_max}℃ </div>
-        <div>Wind Speed: {weather.wind.speed}meter/sec </div>
+        <div>Wind Speed: {weather.wind.speed} meter/sec </div>
       </div>
       <div className="flex justify-center">
         <Image
